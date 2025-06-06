@@ -4,20 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateKaryawansTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up()
     {
         Schema::create('karyawans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('nama');
+            $table->unsignedBigInteger('user_id')->nullable()->unique();
             $table->string('nip')->unique();
             $table->string('jabatan');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('role')->default('karyawan');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 
@@ -25,4 +26,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('karyawans');
     }
-};
+}

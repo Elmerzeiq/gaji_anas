@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         // Panggil semua seeder utama di sini
         $this->call([
-            UserSeeder::class,
+            AdminUserSeeder::class,
             // Tambahkan seeder lain di bawah ini sesuai kebutuhan
             // KaryawanSeeder::class,
             // AbsensiSeeder::class,

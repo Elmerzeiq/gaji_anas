@@ -8,7 +8,7 @@ class Karyawan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'nama', 'nip', 'jabatan'];
+    protected $fillable = ['user_id', 'nama', 'nip', 'jabatan','role'];
 
     public function user()
     {
